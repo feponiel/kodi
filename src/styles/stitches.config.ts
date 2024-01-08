@@ -1,4 +1,4 @@
-import { createStitches } from '@stitches/react';
+import { createStitches } from '@stitches/react'
 
 export const { styled, getCssText, globalCss, theme } = createStitches({
   theme: {
@@ -6,7 +6,7 @@ export const { styled, getCssText, globalCss, theme } = createStitches({
       default: 'Nunito, sans-serif',
     },
 
-		space: {
+    space: {
       px: '1px',
       1: '0.25rem',
       2: '0.5rem',
@@ -19,7 +19,7 @@ export const { styled, getCssText, globalCss, theme } = createStitches({
       10: '2.5rem',
     },
 
-		fontSizes: {
+    fontSizes: {
       xs: '0.75rem',
       sm: '0.875rem',
       md: '1rem',
@@ -28,7 +28,7 @@ export const { styled, getCssText, globalCss, theme } = createStitches({
       '2xl': '1.5rem',
     },
 
-		fontWeights: {
+    fontWeights: {
       regular: '400',
       medium: '500',
       bold: '700',
@@ -44,8 +44,8 @@ export const { styled, getCssText, globalCss, theme } = createStitches({
     colors: {
       'white': '#ffffff',
       'ice-white': '#edf4f5',
-    
-      'black': '#505050',
+
+      'black': '#333',
 
       'pph100': '#ebeafd',
       'pph200': '#d9d8fc',
@@ -56,9 +56,18 @@ export const { styled, getCssText, globalCss, theme } = createStitches({
       'pph700': '#5433ce',
       'pph800': '#4b2db9',
       'pph900': '#3b248e',
+
+      gray100: '#F8F9FC',
+      gray200: '#E6E8F2',
+      gray300: '#D1D6E4',
+      gray400: '#8D95AF',
+      gray500: '#303F73',
+      gray600: '#252D4A',
+      gray700: '#181C2A',
+      gray800: '#0E1116',
     },
 
-		radii: {
+    radii: {
       xs: '2.5px',
       sm: '5px',
       md: '10px',

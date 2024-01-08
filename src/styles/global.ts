@@ -13,10 +13,48 @@ export const globalStyles = globalCss({
     color: '$black',
     '-webkit-font-smoothing': 'antialiased',
   },
+
+  'input, button, textarea': {
+    appearance: 'none',
+  },
 })
 
 export const Container = styled('div', {
-  width: '1280px',
+  width: '1000px',
   margin: '0 auto',
   padding: '0 2%',
+})
+
+export const Overlay = styled('div', {
+  width: '100%',
+  height: '100%',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  zIndex: 2,
+})
+
+export const Title = styled('h1', {
+  fontFamily: 'DM Sans',
+  fontWeight: '$bold',
+
+  variants: {
+    size: {
+      sm: {
+        fontSize: '1rem',
+      },
+
+      md: {
+        fontSize: '2rem',
+      },
+
+      lg: {
+        fontSize: '3rem',
+      },
+    },
+  },
+
+  defaultVariants: {
+    size: 'md',
+  },
 })
