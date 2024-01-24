@@ -20,7 +20,7 @@ export const globalStyles = globalCss({
 })
 
 export const Container = styled('div', {
-  width: '1000px',
+  width: '1100px',
   margin: '0 auto',
   padding: '0 2%',
 })
@@ -31,7 +31,7 @@ export const Overlay = styled('div', {
   position: 'absolute',
   top: 0,
   left: 0,
-  zIndex: 2,
+  zIndex: 1,
 })
 
 export const Title = styled('h1', {
