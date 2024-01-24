@@ -6,7 +6,7 @@ export const StyledHome = styled('div', {
   '.home-container': {
     display: 'grid',
     alignItems: 'flex-start',
-    gridTemplateColumns: '1fr 33%',
+    gridTemplateColumns: '1fr 29%',
     gridTemplateRows: 'auto 1fr',
     gridTemplateAreas: `'trending mainsidebar' 'feed mainsidebar'`,
     gap: '$4',
