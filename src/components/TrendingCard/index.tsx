@@ -1,12 +1,14 @@
 import { Title } from '@/styles/global'
 import {
+  TrendCardCallToAction,
   TrendingCardCaption,
   TrendingCardFigure,
   TrendingCardWrapper,
 } from './styles'
 import Image from 'next/image'
 import { useState } from 'react'
-import { minimizeText } from '@/utils/minimizeText'
+import { match } from 'ts-pattern'
+import { ArrowRight } from '@phosphor-icons/react'
 
 interface TrendingCardProps {
   goTo: string
@@ -18,39 +20,29 @@ interface TrendingCardProps {
   }
 }
 
-export function TrendingCard({
-  goTo,
-  size,
-  title: fullTitle,
-  image,
-}: TrendingCardProps) {
-  const [isMouseIn, setMouseIn] = useState<boolean | undefined>()
-  const minimalTitle = minimizeText(fullTitle, 60, '...')
-  const title = isMouseIn ? fullTitle : minimalTitle
-
-  function handleMousePosition() {
-    isMouseIn ? setMouseIn(false) : setMouseIn(true)
-  }
+export function TrendingCard({ goTo, size, title, image }: TrendingCardProps) {
+  const [isMouseIn, setMouseIn] = useState<boolean>(false)
 
   return (
     <TrendingCardWrapper
-      onMouseOver={handleMousePosition}
-      onMouseOut={handleMousePosition}
+      onMouseOver={() => setMouseIn(true)}
+      onMouseOut={() => setMouseIn(false)}
       href={goTo}
     >
-      <TrendingCardFigure>
+      <TrendingCardFigure
+        className={match(isMouseIn)
+          .with(true, () => 'turnGradientAnimationIn')
+          .with(false, () => 'turnGradientAnimationOut')
+          .otherwise(() => '')}
+      >
         <Image src={image.url} alt={image.alt} width={300} height={300} />
 
-        <TrendingCardCaption
-          className={
-            isMouseIn !== undefined
-              ? isMouseIn
-                ? 'turnGradientAnimationIn'
-                : 'turnGradientAnimationOut'
-              : ''
-          }
-        >
+        <TrendingCardCaption>
           <Title size={size}>{title}</Title>
+          <TrendCardCallToAction size={size}>
+            Ler artigo
+            <ArrowRight />
+          </TrendCardCallToAction>
         </TrendingCardCaption>
       </TrendingCardFigure>
     </TrendingCardWrapper>

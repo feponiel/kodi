@@ -1,5 +1,4 @@
-import { styled } from '@/styles/stitches.config'
-import { keyframes } from '@stitches/react'
+import { keyframes, styled } from '@/styles/stitches.config'
 import Link from 'next/link'
 
 const cardGradientAnimationIn = keyframes({
@@ -15,31 +14,25 @@ const cardGradientAnimationOut = keyframes({
 export const TrendingCardWrapper = styled(Link, {
   display: 'flex',
   textDecoration: 'none',
-})
-
-export const TrendingCardFigure = styled('figure', {
-  position: 'relative',
   overflow: 'hidden',
-  transition: '2s',
+  position: 'relative',
 
-  img: {
+  // to prevent hover conflict
+  '&::before': {
     width: '100%',
     height: '100%',
-  },
-})
-
-export const TrendingCardCaption = styled('figcaption', {
-  h1: {
-    color: '$white',
-    display: 'flex',
-    alignItems: 'flex-end',
-    width: '100%',
-    height: '100%',
-    padding: '$4',
+    content: '',
     position: 'absolute',
     top: 0,
     left: 0,
-    zIndex: 2,
+    zIndex: 1,
+  },
+})
+
+export const TrendingCardFigure = styled('figure', {
+  img: {
+    width: '100%',
+    height: '100%',
   },
 
   '&::before': {
@@ -49,8 +42,8 @@ export const TrendingCardCaption = styled('figcaption', {
     position: 'absolute',
     top: '25%',
     left: 0,
-    zIndex: 1,
-    background: 'linear-gradient(to top, $black 20%, transparent 100%)',
+    zIndex: 0,
+    background: 'linear-gradient(to top, $black 0%, transparent 100%)',
   },
 
   '&.turnGradientAnimationIn::before': {
@@ -58,6 +51,37 @@ export const TrendingCardCaption = styled('figcaption', {
   },
 
   '&.turnGradientAnimationOut::before': {
-    animation: `${cardGradientAnimationOut} 0.20s forwards`,
+    animation: `${cardGradientAnimationOut} 0.25s forwards`,
+  },
+})
+
+export const TrendingCardCaption = styled('figcaption', {
+  position: 'absolute',
+  bottom: 8,
+  left: 0,
+  padding: '$3',
+
+  h1: {
+    color: '$white',
+    zIndex: 1,
+  },
+})
+
+export const TrendCardCallToAction = styled('p', {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '$1',
+  marginTop: '$2',
+  color: '$gray200',
+
+  variants: {
+    size: {
+      sm: {
+        fontSize: '$sm',
+      },
+      md: {
+        fontSize: '$xl',
+      },
+    },
   },
 })

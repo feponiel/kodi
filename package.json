@@ -1,9 +1,9 @@
 {
-  "name": "kodai-blog",
+  "name": "kodi-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "start:dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -13,7 +13,7 @@
     "@stitches/react": "^1.2.8",
     "next": "14.0.2",
     "react": "^18",
-    "react-dom": "^18"
+    "ts-pattern": "^5.0.6"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.1.0",
