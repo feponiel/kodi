@@ -11,12 +11,12 @@ export function Header() {
       <Container className="header-container">
         <Logo />
         <SearchBar />
-        {/* <Avatar
+        <Avatar
           src="https://github.com/feponiel.png"
           alt="Sua foto de perfil."
           width={40}
           height={40}
-        /> */}
+        />
       </Container>
     </StyledHeader>
   )
