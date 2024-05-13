@@ -1,8 +1,9 @@
-import { Container } from '@/styles/global'
+'use client'
+
+import { Avatar, Container } from '@/styles/global'
 import { StyledHeader } from './styles'
 import { Logo } from '../Logo'
-import { SearchBar } from '../SearchBar'
-import { Avatar } from '../Avatar'
+import { SearchBar } from './SearchBar'
 
 export function Header() {
   return (
@@ -10,7 +11,12 @@ export function Header() {
       <Container className="header-container">
         <Logo />
         <SearchBar />
-        <Avatar avatarUrl="https://github.com/feponiel.png" />
+        {/* <Avatar
+          src="https://github.com/feponiel.png"
+          alt="Sua foto de perfil."
+          width={40}
+          height={40}
+        /> */}
       </Container>
     </StyledHeader>
   )

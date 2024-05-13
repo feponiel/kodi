@@ -1,60 +1,104 @@
-import { globalCss, styled } from './stitches.config'
+import Image from 'next/image'
+import styled, { createGlobalStyle, css } from 'styled-components'
 
-export const globalStyles = globalCss({
-  '*': {
-    margin: 0,
-    padding: 0,
-    boxSizing: 'border-box',
-    fontFamily: 'IBM Plex Sans',
-  },
+export const GlobalStyle = createGlobalStyle`
+  ${({ theme }) => css`
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: ${theme.fonts.default};
+    }
 
-  body: {
-    backgroundColor: '$ice-white',
-    color: '$black',
-    '-webkit-font-smoothing': 'antialiased',
-  },
+    body {
+      background-color: ${theme.colors['ice-white']};
+      color: ${theme.colors.black};
+      -webkit-font-smoothing: antialiased;
+    }
 
-  'input, button, textarea': {
-    appearance: 'none',
-  },
-})
+    input,
+    button,
+    textarea {
+      appearance: none;
+    }
 
-export const Container = styled('div', {
-  width: '1100px',
-  margin: '0 auto',
-  padding: '0 2%',
-})
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
 
-export const Overlay = styled('div', {
-  width: '100%',
-  height: '100%',
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  zIndex: 1,
-})
+    ::-webkit-scrollbar-track {
+      background: ${theme.colors.gray100};
+    }
 
-export const Title = styled('h1', {
-  fontFamily: 'DM Sans',
-  fontWeight: '$bold',
+    ::-webkit-scrollbar-thumb {
+      ${({ theme }) => css`
+        background: ${theme.colors.gray400};
+        border-radius: ${theme.radius.xs};
+      `}
+    }
+  `}
+`
 
-  variants: {
-    size: {
-      sm: {
-        fontSize: '1rem',
-      },
+export const Container = styled.div`
+  width: 1150px;
+  margin: 0 auto;
+  padding: 0 2%;
 
-      md: {
-        fontSize: '2rem',
-      },
+  /* '@responsive-desktop-hd': {
+    padding: '0 $6',
+  }, */
+`
 
-      lg: {
-        fontSize: '3rem',
-      },
-    },
-  },
+export const Overlay = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+`
 
-  defaultVariants: {
-    size: 'md',
-  },
-})
+export const Avatar = styled(Image)`
+  ${({ theme }) => css`
+    background: ${theme.colors.gray200};
+    border-radius: ${theme.radius.sm};
+    overflow: hidden;
+  `}
+`
+
+interface TitleProps {
+  $level: 1 | 2 | 3 | 4 | 5 | 6
+  $size?: 'xs' | 'sm' | 'md' | 'lg'
+}
+
+export const Title = styled.h1.attrs<TitleProps>(({ $level }) => ({
+  as: `h${$level}`,
+}))<TitleProps>`
+  ${({ theme, $size = 'md' }) => css`
+    font-family: ${theme.fonts.title};
+    font-weight: ${theme.fontWeights.medium};
+    line-height: 1.37;
+    color: ${theme.colors.gray500};
+
+    // VARIANTS
+    ${$size === 'xs' &&
+    css`
+      font-size: ${theme.fontSizes.sm};
+    `}
+
+    ${$size === 'sm' &&
+    css`
+      font-size: ${theme.fontSizes.md};
+    `}
+
+    ${$size === 'md' &&
+    css`
+      font-size: ${theme.fontSizes.xl};
+    `}
+
+    ${$size === 'lg' &&
+    css`
+      font-size: ${theme.fontSizes['3xl']};
+    `}
+  `}
+`

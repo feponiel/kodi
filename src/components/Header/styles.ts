@@ -1,17 +1,21 @@
-import { styled } from '@/styles/stitches.config'
+import styled, { css } from 'styled-components'
 
-export const StyledHeader = styled('header', {
-  width: '100%',
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  padding: '$5 0',
-  background: '$white',
-  zIndex: 9999,
+export const StyledHeader = styled.header`
+  ${({ theme }) => css`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: ${theme.defaults.headerHeight};
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: ${theme.colors.white};
+    z-index: 9999;
 
-  '.header-container': {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '$5',
-  },
-})
+    .header-container {
+      display: flex;
+      align-items: center;
+      gap: ${theme.space[5]};
+    }
+  `}
+`
