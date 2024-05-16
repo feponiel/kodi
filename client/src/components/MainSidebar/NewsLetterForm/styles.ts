@@ -34,8 +34,8 @@ export const NewsLetterSubscribeForm = styled.form`
       color: ${theme.colors.gray500};
       background: ${theme.colors.gray200};
       border: none;
-      border-top-left-radius: ${theme.radius.lg};
-      border-bottom-left-radius: ${theme.radius.lg};
+      border-top-left-radius: ${theme.radius.xs};
+      border-bottom-left-radius: ${theme.radius.xs};
       outline: none;
 
       &::placeholder {
@@ -54,8 +54,8 @@ export const NewsLetterFormSubmitButton = styled.button`
     color: ${theme.colors.white};
     background: ${theme.colors.accentColor};
     border: none;
-    border-top-right-radius: ${theme.radius.lg};
-    border-bottom-right-radius: ${theme.radius.lg};
+    border-top-right-radius: ${theme.radius.xs};
+    border-bottom-right-radius: ${theme.radius.xs};
     cursor: pointer;
   `}
 `

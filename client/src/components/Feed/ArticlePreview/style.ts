@@ -93,7 +93,7 @@ export const ArticlePreviewViews = styled.span`
     color: ${theme.colors.gray400};
     background: ${theme.colors.gray100};
     border: 1px solid ${theme.colors.gray400};
-    border-radius: ${theme.radius.lg};
+    border-radius: ${theme.radius.xs};
     text-transform: unset;
   `}
 `

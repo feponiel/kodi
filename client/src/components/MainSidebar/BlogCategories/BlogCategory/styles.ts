@@ -10,7 +10,7 @@ export const StyledBlogCategory = styled.li<StyledBlogCategoryProps>`
       padding: ${theme.space[1]} ${theme.space[2]};
       font-size: ${theme.fontSizes.xxs};
       font-family: ${theme.fonts.title};
-      border-radius: ${theme.radius.full};
+      border-radius: ${theme.radius.xs};
       user-select: none;
       cursor: pointer;
     }

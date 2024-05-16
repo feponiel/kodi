@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 export const HomeContainer = styled(Container)`
   ${({ theme }) => css`
-    margin-top: ${theme.defaults.headerHeight};
+    margin-top: calc(${theme.defaults.headerHeight} + ${theme.space[4]});
   `}
 `
 
