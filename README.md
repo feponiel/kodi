@@ -1,3 +1,3 @@
 ```
-Project in development! Please wait for the first release :P
+Project in development, please wait for the first release.
 ```
